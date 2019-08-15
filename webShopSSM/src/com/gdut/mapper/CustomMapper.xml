@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdut.mapper.CustomMapper">
+
+	<resultMap type="com.gdut.entity.Custom" id="customResultMap">
+		<id column="custom_id" property="customId" />
+		<result column="custom_pwd" property="customPwd" />
+		<result column="custom_sex" property="customSex" />
+		<result column="custom_name" property="customName" />
+		<result column="custom_phone_num" property="customPhoneNum" />
+	</resultMap>
+
+	<select id="queryCustom" parameterType="String" resultMap="customResultMap">
+		select * from custom where custom_id = #{customId}
+	</select>
+
+	<insert id="registAccount" parameterType="com.gdut.entity.Custom">
+		insert into custom
+		(custom_id,custom_pwd,custom_name,custom_sex,custom_phone_num)
+		values(#{custom_id},#{custom_pwd},#{custom_name},#{custom_sex},#{custom_phone_num})
+	</insert>
+
+</mapper>
