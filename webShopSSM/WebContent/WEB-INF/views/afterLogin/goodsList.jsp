@@ -48,7 +48,6 @@
 	margin: 0px;
 	padding: 0px;
 	text-decoration: none;
-	list-style: none;
 }
 
 #goodsList {
@@ -197,9 +196,9 @@ font {
 #myCart{
 	position: absolute;
 	border: 1px solid transparent;
-	width: 50px;
-	height: 25px;
-	top: 50px;
+	width: 150px;
+	height: 20px;
+	top: 100px;
 	left: 1100px;
 	background-color: #999;
 	border-radius: 5px;
@@ -223,7 +222,8 @@ font {
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="uuid">uuid: ${cookie.sessionId.value}</div>
+	<div id="uuid">当前用户：<%=session.getValue("customId") %></div>
+	uuid: ${cookie.sessionId.value}
 	<br>
 	<a id="loginButton" href="http://localhost:8080/webShopSSM/">登录</a>
 	<input id="loginOff" type="button" value="退出" onclick="loginOff()">

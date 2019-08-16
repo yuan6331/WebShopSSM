@@ -38,7 +38,8 @@ public class LoginHandler {
 	 */
 	@RequestMapping(value="loginAction",method=RequestMethod.POST,produces = "text/plain;charset=utf-8")
 	@ResponseBody
-	public String loginHandler(String customId,String customPwd) {
+	public String loginHandler(String customId,String customPwd,HttpServletRequest request) {
+		request.getSession().setAttribute("customId", customId);
 		return loginService.login(customId, customPwd);
 	}
 
@@ -51,7 +52,7 @@ public class LoginHandler {
 	public String queryGoodsByGoodsName(@RequestParam String goodsName, Model model) {
 		goodsList=goodsService.queryGoodsByName(goodsName);
 		model.addAttribute("goodsList", goodsList);
-		return "beforeLogin/goodsList";
+		return "afterLogin/goodsList";
 	}
 	
 	/*
@@ -61,7 +62,7 @@ public class LoginHandler {
 	public String queryAllgoods(Model model) {
 		goodsList=goodsService.queryAllGoods();
 		model.addAttribute("goodsList", goodsList);
-		return "beforeLogin/goodsList";
+		return "afterLogin/goodsList";
 	}
 	/*
 	 * ÍË³öÕËºÅ
