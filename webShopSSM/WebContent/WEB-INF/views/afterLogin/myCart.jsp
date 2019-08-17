@@ -14,7 +14,7 @@
 #myCartList {
 	position: relative; 
 	border : 1px solid grey;
-	width: 300px;
+	width: 450px;
 	height: 50px;
 	left: 300px;
 	padding-top: 18px;
@@ -37,7 +37,7 @@
 		<c:forEach items="${myCartList}" var="order">
 			<ul id="myCartList">
 				<li class="order">${order.goodsId}</li>
-				<li class="order">${order.goodsNumber}</li>
+				<li class="order">数量：${order.goodsNumber}</li>
 			</ul>
 		</c:forEach>
 		

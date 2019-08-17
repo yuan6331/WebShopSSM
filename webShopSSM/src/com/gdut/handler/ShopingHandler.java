@@ -37,5 +37,6 @@ public class ShopingHandler {
 	public String checkMyCart(Model model,HttpServletRequest request,String customId){
 		return cartService.queryCart(request, customId, model);
 	}
+	
 
 }
